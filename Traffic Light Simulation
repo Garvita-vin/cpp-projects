@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <thread>
+#include <chrono>
+
+using namespace std;
+
+int main() {
+    srand(time(0));   // random seed
+
+    // Random time (seconds)
+    int redTime = rand() % 5 + 3;     // 3–7 sec
+    int yellowTime = rand() % 3 + 2;  // 2–4 sec
+    int greenTime = rand() % 5 + 3;   // 3–7 sec
+
+    cout << "Traffic Light Simulation Started\n\n";
+
+    // RED Light
+    cout << "🔴 RED Light\n";
+    cout << "Action: STOP\n";
+    cout << "Time: " << redTime << " seconds\n\n";
+    this_thread::sleep_for(chrono::seconds(redTime));
+
+    // YELLOW Light
+    cout << "🟡 YELLOW Light\n";
+    cout << "Action: READY\n";
+    cout << "Time: " << yellowTime << " seconds\n\n";
+    this_thread::sleep_for(chrono::seconds(yellowTime));
+
+    // GREEN Light
+    cout << "🟢 GREEN Light\n";
+    cout << "Action: GO\n";
+    cout << "Time: " << greenTime << " seconds\n\n";
+    this_thread::sleep_for(chrono::seconds(greenTime));
+
+    cout << "Simulation Ended\n";
+
+    return 0;
+}
