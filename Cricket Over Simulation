@@ -1,0 +1,77 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main() {
+    srand(time(0));   // random seed
+
+    int balls = 0;
+    int runs = 0;
+    int wickets = 0;
+
+    cout << "🏏 Cricket Match Over Simulation\n\n";
+
+    while (balls < 6 && wickets < 10) {
+
+        int event = rand() % 8; // 0–7
+
+        cout << "Ball " << balls + 1 << ": ";
+
+        switch (event) {
+            case 0:
+                cout << "Dot Ball (0 run)\n";
+                balls++;
+                break;
+
+            case 1:
+                cout << "1 Run\n";
+                runs += 1;
+                balls++;
+                break;
+
+            case 2:
+                cout << "2 Runs\n";
+                runs += 2;
+                balls++;
+                break;
+
+            case 3:
+                cout << "3 Runs\n";
+                runs += 3;
+                balls++;
+                break;
+
+            case 4:
+                cout << "FOUR!\n";
+                runs += 4;
+                balls++;
+                break;
+
+            case 5:
+                cout << "SIX!\n";
+                runs += 6;
+                balls++;
+                break;
+
+            case 6:
+                cout << "WICKET!\n";
+                wickets++;
+                balls++;
+                break;
+
+            case 7:
+                cout << "WIDE ball +1 run (extra)\n";
+                runs += 1;
+                // ball not counted
+                break;
+        }
+    }
+
+    cout << "\nOver Completed!\n";
+    cout << "Total Runs: " << runs << endl;
+    cout << "Wickets Lost: " << wickets << endl;
+
+    return 0;
+}
