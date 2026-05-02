@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string reversePart(string s){
+    int left=0,right=s.size()-1;
+    while(left<right){
+        swap(s[left],s[right]);
+        left++;
+        right--;
+    }
+    return s;
+    int main() {
+        double num= 188.4567;
+        string str=to_string(num);
+        int dotPos=str.find('.');
+        string intPart=str.substr(0,dotPos);
+        string decimalPart=str.substr(dotPos+1);
+        string reversedIntPart=reversePart(intPart);    
+        string reversedDecimalPart=reversePart(decimalPart);
+        string result=reversedIntPart+"."+reversedDecimalPart;  
+        cout<<result<<endl;
+        return 0;   
+
+        
+    
+}
+ 
