@@ -1,0 +1,101 @@
+#include <iostream>
+using namespace std;
+//abstract Base Class
+class shape{
+    protected:
+    string color;
+    
+    public:
+    //constructor
+    shape(string c){
+        color = c;
+    }
+    //pure virtual function (abstraction)
+    virtual void area () = 0;
+    
+    //comman Function
+    void displayColor(){
+        
+        cout<<"color:"<<color<<endl;
+    }
+};
+//derived Class -circle
+class circle:public shape {
+    private:
+    float radius ;
+    public:
+     circle(string c , float r): shape(c) {
+        radius = r;
+    }
+    //polymorphysikm
+    void area () override {
+cout <<"Area of Circle :"<<3.14*radius*radius<<endl;
+    }
+};
+
+//derived class-rectangle
+class rectangle: public shape{
+    private:
+    float lenght,
+    breadth;
+    public:
+rectangle(string c, float l, float b): shape(c){
+        lenght = l;
+        breadth = b ;
+    }
+    //polymorphism 
+    void area () override {
+        cout<< "Area of Rectangle:"<<lenght*breadth << endl;
+    }
+    };
+    //derived Class -triangle
+class triangle:public shape {
+    private:
+    float height,base ;
+    public:
+     triangle (string c , float b,float h): shape(c) {
+        height= h;
+        base=b;
+    }
+    //polymorphysim
+    void area () override {
+cout <<"Area of Triangle :"<<0.5*base*height <<endl;
+    }
+};
+ //derived Class -square
+class square:public shape {
+    private:
+    float side ;
+    public:
+     square (string c , float s ): shape(c) {
+       side=s;
+    }
+    //polymorphysim
+    void area () override {
+cout <<"Area of Square :"<<side*side <<endl;
+    }
+};
+    int main (){
+         circle c1("Red",5);
+        rectangle r1("Blue",4,6);
+        triangle t1("Green",5,6);
+        square s1 ("black",7);
+        
+        c1.displayColor();
+        c1.area();
+        cout<<endl;
+        r1.displayColor();
+        r1.area();
+        cout<<endl;
+          t1.displayColor();
+        t1.area();
+         cout<<endl;
+         
+       s1.displayColor();
+        s1.area();
+        return 0;
+        
+    }
+
+    
+ 
