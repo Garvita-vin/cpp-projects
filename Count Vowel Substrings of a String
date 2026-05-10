@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool isVowel(char c) {
+        return c=='a' || c=='e' || c=='i' || c=='o' || c=='u';
+    }
+
+    int countVowelSubstrings(string word) {
+        int count = 0;
+        int n = word.length();
+
+        for(int i = 0; i < n; i++) {
+            int vowel[5] = {0};
+
+            for(int j = i; j < n; j++) {
+                if(!isVowel(word[j]))
+                    break;
+
+                if(word[j]=='a') vowel[0] = 1;
+                if(word[j]=='e') vowel[1] = 1;
+                if(word[j]=='i') vowel[2] = 1;
+                if(word[j]=='o') vowel[3] = 1;
+                if(word[j]=='u') vowel[4] = 1;
+
+                if(vowel[0] && vowel[1] && vowel[2] && vowel[3] && vowel[4])
+                    count++;
+            }
+        }
+
+        return count;
+    }
+};
